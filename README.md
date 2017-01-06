@@ -33,7 +33,7 @@ Version 0.1.0
 
 Currently working:
 * Turning receiver on/off
-* Mute/unmute receiver
+* Replaced Mute/Unmute for Cursor Down and Select
 * Increase/decrease volume
 * Set volume to a certain value
 * Change source of receiver
