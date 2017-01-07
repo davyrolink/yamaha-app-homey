@@ -331,8 +331,8 @@
         },{
             "id": "mute",
             "title": {
-                "en": "Down",
-                "nl": "Down"
+                "en": "Server Down",
+                "nl": "Server Down"
             },
             "args": [
               {
@@ -348,8 +348,8 @@
         },{
             "id": "unMute",
             "title": {
-                "en": "Mute Off",
-                "nl": "Select"
+                "en": "Server Select",
+                "nl": "Server Select"
             },
             "args": [
               {
