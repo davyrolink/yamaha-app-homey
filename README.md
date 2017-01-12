@@ -1,7 +1,7 @@
 # Yamaha receiver app for Athom Homey
 Control your Yamaha network-enabled receiver using the Homey by Athom B.V.
 
-Replaced Mute/Unmute for Cursor Down and Select
+Replaced Mute/Unmute for Cursor Down and Server Select and added USB Select
 
 Important!
 Before you can use it to turn your receiver on, you should go to the settings on your receiver's webpage (enter the IP adres in a browser), and go to settings -> Network Standby -> Select 'On'.
