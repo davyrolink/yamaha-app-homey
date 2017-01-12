@@ -77,7 +77,7 @@ module.exports.pair = function (socket) {
 		hostIP = tempIP;
 		hostZone = data.zone;
 		Homey.log ( "Yamaha receiver app - got get_devices from front-end, tempIP =" + hostIP );
-		
+
 			module.exports.setSettings({
 			ipaddress: hostIP,
 			zone: hostZone
@@ -87,7 +87,7 @@ module.exports.pair = function (socket) {
 			settings.zone = hostZone;
 			})
 
-			
+
 		// assume IP is OK and continue
 		socket.emit ('continue', null);
 
@@ -125,7 +125,7 @@ module.exports.capabilities = {
 			GetStatus(device_data.id);
 			var device = getDeviceByData( device_data );
 			if( device instanceof Error ) {return callback( device );}
-			
+
 			//My head hurts... this is a terrible workaround
 			//Check and update capabilities every 20 seconds
 			var seconds = 10, the_interval = seconds * 1000;
@@ -136,7 +136,7 @@ module.exports.capabilities = {
 				GetStatus(device.data)
 			  // do your stuff here
 			}, the_interval);
-	
+
 			callback( null, true )
         },
         set: function( device_data, onoff, callback ) {
@@ -192,7 +192,7 @@ module.exports.capabilities = {
         // `dim` is the new value
         // `callback` should return the new value in the format callback( err, value )
         set: function( device_data, volume_mute, callback ) {
-            
+
 			var device = getDeviceByData( device_data );
 			if( device instanceof Error ) return callback( device );
 
@@ -300,7 +300,7 @@ Homey.manager('flow').on('action.changeSurround', function (callback, args) {
 Homey.manager('flow').on('action.mute', function (callback, args){
 	Homey.log('Mute flow: %j',args.device)
 	//devices[ args.device.id ].volume_mute.set = true;
-	
+
 	module.exports.realtime( args.device, 'volume_mute', true)
 	//module.exports.capabilities.volume_mute = true;
 	//devices[ args.device.id ].state = { volume_mute: true }
@@ -311,6 +311,13 @@ Homey.manager('flow').on('action.unMute', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Sel</Cursor></List_Control></SERVER></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.usbSelect', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><USB><List_Control><Cursor>Sel</Cursor></List_Control></USB></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
@@ -325,12 +332,12 @@ Homey.manager('flow').on('action.setVolume', function (callback, args){
 Homey.manager('flow').on('action.volumeUp', function (callback, args){
 	var targetVolume = args.volume;
 	Homey.log ('target volume=' + targetVolume);
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Lvl><Val>Up '+targetVolume+' dB</Val><Exp></Exp><Unit></Unit></Lvl></Volume></'+args.device.zone+'></YAMAHA_AV>');	
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Lvl><Val>Up '+targetVolume+' dB</Val><Exp></Exp><Unit></Unit></Lvl></Volume></'+args.device.zone+'></YAMAHA_AV>');
 	callback(null, true);
 });
 Homey.manager('flow').on('action.volumeDown', function (callback, args){
 	var targetVolume = args.volume;
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Lvl><Val>Down '+targetVolume+' dB</Val><Exp></Exp><Unit></Unit></Lvl></Volume></'+args.device.zone+'></YAMAHA_AV>');	
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Lvl><Val>Down '+targetVolume+' dB</Val><Exp></Exp><Unit></Unit></Lvl></Volume></'+args.device.zone+'></YAMAHA_AV>');
 	callback(null, true);
 });
 
@@ -339,7 +346,7 @@ function SendXMLToReceiver (ipaddress,xml){
 	Homey.log ("Yamaha receiver app - sending " + xml + " to " + hostIP);
     var latestPostHTTP = request
 	.post({
-        method: 'POST', 
+        method: 'POST',
         uri: 'http://'+ipaddress+'/YamahaRemoteControl/ctrl',
         body:xml
     })
@@ -348,14 +355,14 @@ function SendXMLToReceiver (ipaddress,xml){
     Homey.log(response.headers['content-type']) // 'image/png'
     Homey.log(response.body) // 'image/png'
 	})
-	Homey.log ("Lastest HTTP_send: %j",latestPostHTTP)	
+	Homey.log ("Lastest HTTP_send: %j",latestPostHTTP)
 	Homey.log ('callback true');
 };
 function GetXMLFromReceiver (xml){
 	Homey.log ("Yamaha receiver app - getting " + xml + " from " + hostIP);
     var latestGetHTTP = request
 	.post({
-        method: 'POST', 
+        method: 'POST',
         uri: 'http://'+hostIP+'/YamahaRemoteControl/ctrl',
         body:xml
     })
@@ -367,7 +374,7 @@ function GetXMLFromReceiver (xml){
 	.on('data', function (chunk) {
     Homey.log('BODY: ' + chunk);
   });
-	Homey.log ("Lastest HTTP_GET: %j",latestGetHTTP)	
+	Homey.log ("Lastest HTTP_GET: %j",latestGetHTTP)
 };
 //Get status and parse it --> this is the XML part.
 function GetStatus (cap){
@@ -375,7 +382,7 @@ function GetStatus (cap){
 	Homey.log ("Yamaha receiver app - status request " + xml + " from " + hostIP + 'with cap = ' +cap);
     var latestGetHTTP = request
 	.post({
-        method: 'POST', 
+        method: 'POST',
         uri: 'http://'+hostIP+'/YamahaRemoteControl/ctrl',
         body:xml
     })
@@ -385,7 +392,7 @@ function GetStatus (cap){
 	})
 	.on('data', function (chunk) {
 		Homey.log('Full BODY: ' + chunk);
-		
+
 		//Regexp the result - Mute
 		var str = String(chunk);
 		var regexp = /Lvl><Mute>((On|Off))<\/Mute/i;
@@ -393,67 +400,67 @@ function GetStatus (cap){
 		//Make muteStatus binary: 1 is on, 0 is off.
 		var muteStatus = matches_array[1].replace('On',1);
 		muteStatus = muteStatus.replace('Off',0);
-		
+
 		//Regexp the result - Volume value
 		var regexp = /<Volume><Lvl><Val>(.?([0-9])*)<\/Val/i;
 		var matches_array = str.match(regexp);
 		var volumeStatus = matches_array[1];
 		//Set volumeStatus to 0-1 float value
 		volumeStatus=((volumeStatus/5)+160)/192;
-				
+
 		//Regexp the result - current input
 		var regexp = /<Input><Input_Sel>(.*?)<\/Input_Sel>/i;
 		var matches_array = str.match(regexp);
 		var inputStatus = matches_array[1];
-		
+
 		//Regexp the result - sourceName
 		var regexp = /<Src_Name>(.*?)<\/Src_Name>/i;
 		var matches_array = str.match(regexp);
 		var sourceNameStatus = matches_array[1];
-		
+
 		//Regexp the result - onoff state
 		var regexp = /Power_Control><Power>(.*?)<\/Power>/i;
 		var matches_array = str.match(regexp);
 		//Make onoffStatus binary: 1 is on, 0 is off.
 		var onoffStatus = matches_array[1].replace('On',1);
 		onoffStatus = onoffStatus.replace('Off',0);
-		
+
 		//Regexp the result - sleep state
 		var regexp = /Power><Sleep>(.*?)<\/Sleep>/i;
 		var matches_array = str.match(regexp);
 		//Make sleepStatus binary: 1 is on, 0 is off.
 		var sleepStatus = matches_array[1].replace('On',1);
 		sleepStatus = sleepStatus.replace('Off',0);
-		
+
 		//Regexp the result - straight option
 		var regexp = /<Straight>(.*?)<\/Straight>/i;
 		var matches_array = str.match(regexp);
 		//Make straightStatus binary: 1 is on, 0 is off.
 		var straightStatus = matches_array[1].replace('On',1);
 		straightStatus = straightStatus.replace('Off',0);
-		
+
 		//Regexp the result - enhancer option
 		var regexp = /<Enhancer>(.*?)<\/Enhancer>/i;
 		var matches_array = str.match(regexp);
 		//Make straightStatus binary: 1 is on, 0 is off.
 		var enhancerStatus = matches_array[1].replace('On',1);
 		enhancerStatus = enhancerStatus.replace('Off',0);
-		
+
 		//Regexp the result - soundProgram
 		var regexp = /<Sound_Program>(.*?)<\/Sound_Program>/i;
 		var matches_array = str.match(regexp);
 		var soundProgramStatus = matches_array[1];
-		
+
 		//Regexp the result - bassValue
 		var regexp = /<Bass><Val>(.*?)<\/Val>/i;
 		var matches_array = str.match(regexp);
 		var bassValueStatus = matches_array[1];
-		
+
 		//Regexp the result - trebleValue
 		var regexp = /<Treble><Val>(.*?)<\/Val>/i;
 		var matches_array = str.match(regexp);
 		var trebleValueStatus = matches_array[1];
-		
+
 		//Give a log of the results
 		Homey.log('---------------------------------------------')
 		Homey.log('Mute Status: '+muteStatus);
@@ -467,7 +474,7 @@ function GetStatus (cap){
 		Homey.log('Sound Program Status: '+soundProgramStatus);
 		Homey.log('Bass value Status: '+bassValueStatus);
 		Homey.log('Treble value Status: '+trebleValueStatus);
-		
+
 		//Capabilities part
 		//Changing all capabilities - too much, but no workaround at the moment
 		if (cap !== 0) {
@@ -476,10 +483,10 @@ function GetStatus (cap){
 			//Homey.log('Current volume_mute status: '+device)
 			if (muteStatus == 0){module.exports.realtime( cap, 'volume_mute', false)}
 			else{module.exports.realtime( cap, 'volume_mute', true)}
-			
+
 			if (onoffStatus == 0){module.exports.realtime( cap, 'onoff', false)}
 			else{module.exports.realtime( cap, 'onoff', true)}
-			
+
 			module.exports.realtime( cap, 'source_selected', String(inputStatus))
 			module.exports.realtime( cap, 'soundprogram_selected', String(soundProgramStatus))
 			module.exports.realtime( cap, 'volume_set', volumeStatus)
