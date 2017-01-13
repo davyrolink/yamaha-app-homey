@@ -382,6 +382,42 @@
           ]
       },
       {
+        "id": "netradioPreset1",
+        "title": {
+            "en": "538 Hitzone",
+            "nl": "538 Hitzone"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select receiver",
+              "nl": "Selecteer receiver"
+            },
+          "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPreset2",
+      "title": {
+          "en": "Sky Radio Hits",
+          "nl": "Sky Radio Hits"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
             "id": "setVolume",
             "title": {
                 "en": "Change volume",
