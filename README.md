@@ -1,5 +1,5 @@
 # Yamaha receiver app for Athom Homey 
-I've made some adjustments to create the possibillity to play music from usb,nas and netradio only for personal use.
+I've made some adjustments to the original app to create the possibillity to play music from usb,nas and netradio only for personal use.
 
 Control your Yamaha network-enabled receiver using the Homey by Athom B.V.
 
