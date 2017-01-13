@@ -321,6 +321,20 @@ Homey.manager('flow').on('action.usbSelect', function (callback, args){
 	//GetStatus(args.device)
 	callback(null, true);
 });
+Homey.manager('flow').on('action.netradioPreset1', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_1</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netradioPreset2', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_2</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
 Homey.manager('flow').on('action.setVolume', function (callback, args){
 	var targetVolume = args.volume;
 	Homey.log ('target volume=' + targetVolume);
