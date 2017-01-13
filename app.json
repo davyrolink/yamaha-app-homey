@@ -418,6 +418,78 @@
         ]
     },
     {
+      "id": "netradioPreset3",
+      "title": {
+          "en": "Sky Love Songs",
+          "nl": "Sky Love Songs"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPreset4",
+      "title": {
+          "en": "Sky Radio 80's",
+          "nl": "Sky Radio 80's"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPreset5",
+      "title": {
+          "en": "Cidade FM",
+          "nl": "Cidade FM"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPreset6",
+      "title": {
+          "en": "Radio Amalia",
+          "nl": "Radio Amalia"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
             "id": "setVolume",
             "title": {
                 "en": "Change volume",
