@@ -382,10 +382,10 @@
           ]
       },
       {
-        "id": "netradioPreset1",
+        "id": "netLine1",
         "title": {
-            "en": "538 Hitzone",
-            "nl": "538 Hitzone"
+            "en": "Netradio Select 1",
+            "nl": "Netradio Select 1"
         },
         "args": [
           {
@@ -400,10 +400,10 @@
         ]
     },
     {
-      "id": "netradioPreset2",
+      "id": "netLine2",
       "title": {
-          "en": "Sky Radio Hits",
-          "nl": "Sky Radio Hits"
+          "en": "Netradio Select 2",
+          "nl": "Netradio Select 2"
       },
       "args": [
         {
@@ -418,10 +418,10 @@
         ]
     },
     {
-      "id": "netradioPreset3",
+      "id": "netLine3",
       "title": {
-          "en": "Sky Love Songs",
-          "nl": "Sky Love Songs"
+          "en": "Netradio Select 3",
+          "nl": "Netradio Select 3"
       },
       "args": [
         {
@@ -436,10 +436,10 @@
         ]
     },
     {
-      "id": "netradioPreset4",
+      "id": "netLine4",
       "title": {
-          "en": "Sky Radio 80's",
-          "nl": "Sky Radio 80's"
+          "en": "Netradio Select 4",
+          "nl": "Netradio Select 4"
       },
       "args": [
         {
@@ -454,10 +454,10 @@
         ]
     },
     {
-      "id": "netradioPreset5",
+      "id": "netLine5",
       "title": {
-          "en": "Cidade FM",
-          "nl": "Cidade FM"
+          "en": "Netradio Select 5",
+          "nl": "Netradio Select 5"
       },
       "args": [
         {
@@ -472,10 +472,28 @@
         ]
     },
     {
-      "id": "netradioPreset6",
+      "id": "netLine6",
       "title": {
-          "en": "Radio Amalia",
-          "nl": "Radio Amalia"
+          "en": "Netradio Select 6",
+          "nl": "Netradio Select 6"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPlay",
+      "title": {
+          "en": "Netradio Play",
+          "nl": "Netradio Play"
       },
       "args": [
         {
