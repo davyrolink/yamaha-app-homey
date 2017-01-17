@@ -321,45 +321,52 @@ Homey.manager('flow').on('action.usbSelect', function (callback, args){
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset1', function (callback, args){
+Homey.manager('flow').on('action.netLine1', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_1</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+  SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_1</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset2', function (callback, args){
+Homey.manager('flow').on('action.netLine2', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_2</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset3', function (callback, args){
+Homey.manager('flow').on('action.netLine3', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_3</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset4', function (callback, args){
+Homey.manager('flow').on('action.netLine4', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_4</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset5', function (callback, args){
+Homey.manager('flow').on('action.netLine5', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_5</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
-Homey.manager('flow').on('action.netradioPreset6', function (callback, args){
+Homey.manager('flow').on('action.netLine6', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_6</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netradioPlay', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><Play_Control><Playback>Play</Playback></Play_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
