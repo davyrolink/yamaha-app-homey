@@ -322,10 +322,27 @@ Homey.manager('flow').on('action.mute', function (callback, args){
 	module.exports.realtime( args.device, 'volume_mute', true)
 	//module.exports.capabilities.volume_mute = true;
 	//devices[ args.device.id ].state = { volume_mute: true }
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Down</Cursor></List_Control></SERVER></YAMAHA_AV>');
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Mute>On</Mute></Volume></'+args.device.zone+'></YAMAHA_AV>');
 	callback(null, true);
 });
 Homey.manager('flow').on('action.unMute', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Mute>Off</Mute></Volume></'+args.device.zone+'></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.menuDown', function (callback, args){
+	Homey.log('Mute flow: %j',args.device)
+	//devices[ args.device.id ].volume_mute.set = true;
+	
+	module.exports.realtime( args.device, 'volume_mute', true)
+	//module.exports.capabilities.volume_mute = true;
+	//devices[ args.device.id ].state = { volume_mute: true }
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Down</Cursor></List_Control></SERVER></YAMAHA_AV>');
+	callback(null, true);
+});
+Homey.manager('flow').on('action.menuSelect', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
 	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Sel</Cursor></List_Control></SERVER></YAMAHA_AV>');

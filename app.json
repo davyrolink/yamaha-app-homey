@@ -331,6 +331,40 @@
         },{
             "id": "mute",
             "title": {
+                "en": "Mute",
+                "nl": "Mute"
+            },
+            "args": [
+              {
+                "name": "device",
+                "type": "device",
+                "placeholder": {
+                  "en": "Select receiver",
+                  "nl": "Selecteer receiver"
+                },
+	            "filter": "driver_id=receiver"
+              }
+            ]
+        },{
+            "id": "unMute",
+            "title": {
+                "en": "Mute Off",
+                "nl": "Mute Uit"
+            },
+            "args": [
+              {
+                "name": "device",
+                "type": "device",
+                "placeholder": {
+                  "en": "Select receiver",
+                  "nl": "Selecteer receiver"
+                },
+	            "filter": "driver_id=receiver"
+              }
+            ]
+        },{
+            "id": "menuDown",
+            "title": {
                 "en": "Menu Down",
                 "nl": "Menu Down"
             },
@@ -346,7 +380,7 @@
               }
             ]
         },{
-            "id": "unMute",
+            "id": "menuSelect",
             "title": {
                 "en": "Menu Select",
                 "nl": "Menu Select"
@@ -646,3 +680,4 @@
       ]
     }
 }
+

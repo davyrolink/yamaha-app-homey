@@ -1,9 +1,7 @@
-# Yamaha receiver app for Athom Homey 
-I've made some adjustments to the original app to create the possibillity to play music from usb,nas and netradio only for personal use.
+# Yamaha receiver app for Athom Homey
+I've made some adjustments to the original app to create the possibillity to play music from usb,nas and netradio.
 
 Control your Yamaha network-enabled receiver using the Homey by Athom B.V.
-
-Replaced Mute/Unmute for Cursor Down and Server Select,USB Select,Netradio preset select.
 
 Important!
 Before you can use it to turn your receiver on, you should go to the settings on your receiver's webpage (enter the IP adres in a browser), and go to settings -> Network Standby -> Select 'On'.
@@ -45,7 +43,7 @@ Version 0.1.0
 
 Currently working:
 * Turning receiver on/off
-* Replaced Mute/Unmute for Cursor Down and Select
+* Mute/unmute receiver
 * Increase/decrease volume
 * Set volume to a certain value
 * Change source of receiver
