@@ -331,8 +331,8 @@
         },{
             "id": "mute",
             "title": {
-                "en": "Mute",
-                "nl": "Mute"
+                "en": "Menu Down",
+                "nl": "Menu Down"
             },
             "args": [
               {
@@ -348,8 +348,8 @@
         },{
             "id": "unMute",
             "title": {
-                "en": "Mute Off",
-                "nl": "Mute Uit"
+                "en": "Menu Select",
+                "nl": "Menu Select"
             },
             "args": [
               {
@@ -364,6 +364,150 @@
             ]
         },
         {
+          "id": "usbSelect",
+          "title": {
+              "en": "Menu USB Select",
+              "nl": "Menu USB Select"
+          },
+          "args": [
+            {
+              "name": "device",
+              "type": "device",
+              "placeholder": {
+                "en": "Select receiver",
+                "nl": "Selecteer receiver"
+              },
+            "filter": "driver_id=receiver"
+            }
+          ]
+      },
+      {
+        "id": "netLine1",
+        "title": {
+            "en": "Netradio Select 1",
+            "nl": "Netradio Select 1"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select receiver",
+              "nl": "Selecteer receiver"
+            },
+          "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netLine2",
+      "title": {
+          "en": "Netradio Select 2",
+          "nl": "Netradio Select 2"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netLine3",
+      "title": {
+          "en": "Netradio Select 3",
+          "nl": "Netradio Select 3"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netLine4",
+      "title": {
+          "en": "Netradio Select 4",
+          "nl": "Netradio Select 4"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netLine5",
+      "title": {
+          "en": "Netradio Select 5",
+          "nl": "Netradio Select 5"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netLine6",
+      "title": {
+          "en": "Netradio Select 6",
+          "nl": "Netradio Select 6"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
+      "id": "netradioPlay",
+      "title": {
+          "en": "Netradio Play",
+          "nl": "Netradio Play"
+      },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "placeholder": {
+            "en": "Select receiver",
+            "nl": "Selecteer receiver"
+          },
+        "filter": "driver_id=receiver"
+          }
+        ]
+    },
+    {
             "id": "setVolume",
             "title": {
                 "en": "Change volume",

@@ -322,13 +322,69 @@ Homey.manager('flow').on('action.mute', function (callback, args){
 	module.exports.realtime( args.device, 'volume_mute', true)
 	//module.exports.capabilities.volume_mute = true;
 	//devices[ args.device.id ].state = { volume_mute: true }
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Mute>On</Mute></Volume></'+args.device.zone+'></YAMAHA_AV>');
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Down</Cursor></List_Control></SERVER></YAMAHA_AV>');
 	callback(null, true);
 });
 Homey.manager('flow').on('action.unMute', function (callback, args){
 	//devices[ args.device.id ].state.set = { volume_mute: false };
 	module.exports.realtime( args.device, 'volume_mute', false)
-	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><'+args.device.zone+'><Volume><Mute>Off</Mute></Volume></'+args.device.zone+'></YAMAHA_AV>');
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><SERVER><List_Control><Cursor>Sel</Cursor></List_Control></SERVER></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.usbSelect', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><USB><List_Control><Cursor>Sel</Cursor></List_Control></USB></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine1', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+  SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_1</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine2', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_2</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine3', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_3</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine4', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_4</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine5', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_5</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netLine6', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><List_Control><Direct_Sel>Line_6</Direct_Sel></List_Control></NET_RADIO></YAMAHA_AV>');
+	//GetStatus(args.device)
+	callback(null, true);
+});
+Homey.manager('flow').on('action.netradioPlay', function (callback, args){
+	//devices[ args.device.id ].state.set = { volume_mute: false };
+	module.exports.realtime( args.device, 'volume_mute', false)
+	SendXMLToReceiver(args.device.ipaddress,'<YAMAHA_AV cmd="PUT"><NET_RADIO><Play_Control><Playback>Play</Playback></Play_Control></NET_RADIO></YAMAHA_AV>');
 	//GetStatus(args.device)
 	callback(null, true);
 });
